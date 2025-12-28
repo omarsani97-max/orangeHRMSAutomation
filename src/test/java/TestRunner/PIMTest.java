@@ -43,5 +43,27 @@ public class PIMTest extends Setup{
 //        UtilsPage.saveUserInfo(firstName,lastName,username,password);
         UtilsPage.saveUserInfo(firstName,lastName,username,password);
         Thread.sleep(4000);
-    }
-}
+    }}
+//    public void PIMInfo() throws InterruptedException, IOException, ParseException {
+//        PIMPage pimPage = new PIMPage(driver);
+//
+//        Faker faker = new Faker();
+//        String firstName = faker.name().firstName();
+//        String middleName = faker.name().nameWithMiddle();
+//        String lastName = faker.name().lastName();
+//        String username = faker.name().username();
+//        Thread.sleep(1000);
+//
+//
+//
+////        getEmployeeId.get(4).getText();
+//        int random = ThreadLocalRandom.current().nextInt(100000, 999999);
+//        String password = "Pass@" + random;
+//        System.out.println(password);
+//        String confirmPassword = password;
+//        String userId =pimPage.inputPIMInfo(firstName, middleName, lastName, username, password, confirmPassword);
+//        Thread.sleep(1000);
+//        UtilsPage.saveUserInfo(firstName,lastName,username,password,userId);
+//        Thread.sleep(4000);
+//    }
+//}

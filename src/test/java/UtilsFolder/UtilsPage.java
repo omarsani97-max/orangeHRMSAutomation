@@ -10,7 +10,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 public class UtilsPage {
-    public static void saveUserInfo( String firstName, String lastName, String username,String password) throws IOException, ParseException {
+    public static void saveUserInfo(String firstName, String lastName, String username, String password) throws IOException, ParseException {
         String filePath = "./src/test/resources/user.json";
         JSONParser parser = new JSONParser();
         JSONArray addedUser = (JSONArray) parser.parse(new FileReader(filePath));

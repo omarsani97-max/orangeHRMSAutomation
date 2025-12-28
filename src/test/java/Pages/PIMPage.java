@@ -7,6 +7,8 @@ import org.openqa.selenium.support.PageFactory;
 
 import java.util.List;
 
+import static org.openqa.selenium.support.PageFactory.initElements;
+
 public class PIMPage {
     @FindBy(className = "oxd-main-menu-item-wrapper")
     List<WebElement> clickonPIM;
@@ -39,7 +41,7 @@ public class PIMPage {
 
 
     public PIMPage(WebDriver driver) {
-        PageFactory.initElements(driver, this);
+       PageFactory.initElements(driver,this);
     }
 
     public void inputPIMInfo(String firstName, String middleName, String lastName, String userName, String password, String confirmPassword) throws InterruptedException {
@@ -54,9 +56,10 @@ public class PIMPage {
         Thread.sleep(1000);
         testLastName.sendKeys(lastName);
         Thread.sleep(1000);
-        txtUserId.getText();
 
+        txtUserId.getText();
         Thread.sleep(1000);
+
         clickOnLonginDetails.get(0).click();
         Thread.sleep(1000);
         textuserName.get(5).sendKeys(userName);
@@ -68,5 +71,43 @@ public class PIMPage {
         clickOnSave.get(1).click();
 
 
-    }
-}
+    }}
+//public String inputPIMInfo(String firstName, String middleName, String lastName, String userName, String password, String confirmPassword) throws InterruptedException {
+//    Thread.sleep(1000);
+//    clickonPIM.get(1).click();
+//    Thread.sleep(1000);
+//    clickOnAdd.get(2).click();
+//    Thread.sleep(1000);
+//    textFirstName.sendKeys(firstName);
+//    Thread.sleep(1000);
+//    testMiddleName.sendKeys(middleName);
+//    Thread.sleep(1000);
+//    testLastName.sendKeys(lastName);
+//    Thread.sleep(1000);
+//            WebDriver driver;
+// public PIMPage(WebDriver driver) {
+//        this.driver=driver;
+//        PageFactory.initElements(driver, this);
+//    }
+//    WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(20));
+////    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+//    WebElement empId = wait.until(
+//            ExpectedConditions.visibilityOfElementLocated(
+//                    By.xpath("//label[contains(text(),'Employee Id')]/following::input[1]")
+//            )
+//    );
+//
+//    String userId = empId.getAttribute("value");
+//    Thread.sleep(1000);
+//    clickOnLonginDetails.get(0).click();
+//    Thread.sleep(1000);
+//    textuserName.get(5).sendKeys(userName);
+//    Thread.sleep(2000);
+//    textpassword.get(6).sendKeys(password);
+//    Thread.sleep(1000);
+//    textconformPassword.get(7).sendKeys(confirmPassword);
+//    Thread.sleep(1000);
+//    clickOnSave.get(1).click();
+//    return userId;
+//
+//}
