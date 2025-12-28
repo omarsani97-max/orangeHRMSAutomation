@@ -10,16 +10,17 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 public class UtilsPage {
-    public static void saveUserInfo(String firstName, String lastName, String username, String password) throws IOException, ParseException {
+    public static void saveUserInfo(String firstName,String middleName, String lastName, String username, String password,String userId) throws IOException, ParseException {
         String filePath = "./src/test/resources/user.json";
         JSONParser parser = new JSONParser();
         JSONArray addedUser = (JSONArray) parser.parse(new FileReader(filePath));
         JSONObject userObject = new JSONObject();
         userObject.put("firstName", firstName);
+        userObject.put("middleName", middleName);
         userObject.put("lastName", lastName);
         userObject.put("userName", username);
         userObject.put("password", password);
-//
+        userObject.put("UserId", userId);
         addedUser.add(userObject);
 
         FileWriter writer = new FileWriter(filePath);
@@ -36,4 +37,5 @@ public class UtilsPage {
         return lastAddedUser;
 
     }
+
 }
