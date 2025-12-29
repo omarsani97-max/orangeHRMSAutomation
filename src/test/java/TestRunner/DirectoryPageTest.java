@@ -3,6 +3,7 @@ package TestRunner;
 import Config.Setup;
 import Pages.LoginPage;
 import Pages.directoryPage;
+import Pages.logOut;
 import UtilsFolder.UtilsPage;
 import org.json.simple.parser.ParseException;
 import org.openqa.selenium.By;
@@ -29,9 +30,6 @@ public void directorygoto() throws IOException, ParseException, InterruptedExcep
         String firstName= UtilsPage.getUser().get("firstName").toString();
         System.out.println("firstName  " +firstName);
         directoryPage.directoryInfo(firstName);
-    }
-    @Test(priority = 3)
-    public void textMatchWithJson() throws IOException, ParseException {
         WebElement textElement = driver.findElement(
                 By.xpath("//p[contains(@class,'orangehrm-directory-card-header')]")
         );
@@ -40,10 +38,17 @@ public void directorygoto() throws IOException, ParseException, InterruptedExcep
                 UtilsPage.getUser().get("firstName").toString() + " " +
                         UtilsPage.getUser().get("middleName").toString() + " " +
                         UtilsPage.getUser().get("lastName").toString();
+        System.out.println(expectedText);
+        Thread.sleep(2000);
         Assert.assertEquals(actualText,expectedText);
         Assert.assertTrue(actualText.contains(expectedText),
                 "❌ JSON firstName not found in UI text");
-
+        Thread.sleep(2000);
+    }
+    @Test(priority = 3)
+    public void textMatchWithJson() throws IOException, ParseException, InterruptedException {
+        logOut logout=new logOut(driver);
+        logout.doLogout();
     }
 
 }

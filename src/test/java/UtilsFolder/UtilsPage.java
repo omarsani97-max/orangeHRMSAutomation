@@ -4,10 +4,13 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.List;
 
 public class UtilsPage {
     public static void saveUserInfo(String firstName,String middleName, String lastName, String username, String password,String userId) throws IOException, ParseException {
@@ -35,7 +38,6 @@ public class UtilsPage {
         JSONArray lastAddedArray = (JSONArray) parser.parse(new FileReader(filePath));
         JSONObject lastAddedUser = (JSONObject) lastAddedArray.get(lastAddedArray.size() - 1);
         return lastAddedUser;
-
     }
 
 }

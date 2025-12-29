@@ -22,6 +22,6 @@ public class Setup {
     @AfterTest
     public void closeDriver(){
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-//        driver.quit();
+        driver.quit();
     }
 }
